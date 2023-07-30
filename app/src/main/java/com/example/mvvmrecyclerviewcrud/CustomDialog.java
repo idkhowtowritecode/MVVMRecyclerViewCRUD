@@ -17,5 +17,6 @@ public class CustomDialog extends Dialog{
 
         // You can find and handle the UI components here
         // For example, set click listeners or get values from the UI components
+
     }
 }

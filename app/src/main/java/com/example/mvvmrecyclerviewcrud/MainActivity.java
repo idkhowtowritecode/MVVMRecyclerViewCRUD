@@ -2,6 +2,7 @@ package com.example.mvvmrecyclerviewcrud;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,13 +14,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mvvmrecyclerviewcrud.Adapter.RoomDataAdapter;
+import com.example.mvvmrecyclerviewcrud.ViewModel.RoomViewModel;
+import com.example.mvvmrecyclerviewcrud.models.RoomData;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private ItemAdapter adapter;
+
     private EditText searchEditText;
+    private RoomViewModel roomViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,17 +44,25 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        roomViewModel = new ViewModelProvider(this).get(RoomViewModel.class);
 
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // Create some RoomData objects
+        RoomData roomData1 = new RoomData("101", "Male", "12:00 PM", "Vegetarian", true, true, false);
+        RoomData roomData2 = new RoomData("202", "Female", "02:30 PM", "Vegan", false, true, true);
+        RoomData roomData3 = new RoomData("303", "Other", "04:45 PM", "Non-vegetarian", true, false, true);
 
-        String[] data = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
-        List<String> dataList = new ArrayList<>();
-        for (String item : data) {
-            dataList.add(item);
-        }
-        adapter = new ItemAdapter(dataList);
+        // Add the RoomData objects to the RoomViewModel
+        roomViewModel.addRoomData(roomData1);
+        roomViewModel.addRoomData(roomData2);
+        roomViewModel.addRoomData(roomData3);
+        RoomDataAdapter adapter = new RoomDataAdapter(roomViewModel, this);
+
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        // Pass the LifecycleOwner
         recyclerView.setAdapter(adapter);
+
     }
 
 

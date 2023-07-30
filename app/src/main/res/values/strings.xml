@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">mvvmRecyclerViewCRUD</string>
     <string-array name="spinner_items">
-        <item>Item 1</item>
-        <item>Item 2</item>
-        <item>Item 3</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
         <!-- Add more items if needed -->
     </string-array>
 </resources>

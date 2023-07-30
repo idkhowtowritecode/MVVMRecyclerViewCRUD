@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:clickable="true"
+    android:elevation="4dp"
+    android:focusable="true"
+    android:foreground="?android:attr/panelBackground"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Room ID -->
+        <TextView
+            android:id="@+id/textRoomId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Room ID: 101"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Gender -->
+        <TextView
+            android:id="@+id/textGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender: Male"
+            android:textSize="16sp" />
+
+        <!-- Check-in Time -->
+        <TextView
+            android:id="@+id/textCheckInTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Check-in Time: 10:00 AM"
+            android:textSize="16sp" />
+
+        <!-- Food Preference -->
+        <TextView
+            android:id="@+id/textFoodPreference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Food Preference: Vegetarian"
+            android:textSize="16sp" />
+
+        <!-- Has Wifi -->
+        <TextView
+            android:id="@+id/textHasWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wifi: Yes"
+            android:textSize="16sp" />
+
+        <!-- Has Breakfast -->
+        <TextView
+            android:id="@+id/textHasBreakfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Breakfast: Yes"
+            android:textSize="16sp" />
+
+        <!-- Has Lunch -->
+        <TextView
+            android:id="@+id/textHasLunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lunch: No"
+            android:textSize="16sp" />
+
+        <!-- Add other views for additional information as needed -->
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
