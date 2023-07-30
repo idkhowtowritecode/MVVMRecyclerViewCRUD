@@ -32,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
         buttonToast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCustomToast();
-
+                // show the dialog
+                CustomDialog customDialog = new CustomDialog(MainActivity.this);
+                customDialog.show();
             }
 
         });
@@ -51,20 +52,5 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    private void showCustomToast() {
-        View layout = getLayoutInflater().inflate(R.layout.item_toast_layout, findViewById(R.id.item_toast_container), false);
 
-        // Initialize views within the custom toast layout, if needed
-        TextView textViewMessage = layout.findViewById(R.id.textViewMessage);
-        // Other views initialization...
-
-        // Customize your toast message
-        textViewMessage.setText("This is a custom toast message");
-
-        // Create and show the custom toast
-        Toast customToast = new Toast(getApplicationContext());
-        customToast.setDuration(Toast.LENGTH_LONG);
-        customToast.setView(layout);
-        customToast.show();
-    }
 }
