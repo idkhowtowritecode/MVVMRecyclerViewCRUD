@@ -22,4 +22,26 @@ public class RoomViewModel extends ViewModel {
         roomDataList.add(roomData);
         roomDataListLiveData.setValue(roomDataList);
     }
+
+    public void insert(RoomData roomData) {
+
+        roomDataList.add(roomData);
+        roomDataListLiveData.setValue(roomDataList);
+    }
+    public void update(RoomData roomData) {
+
+        int index = roomDataList.indexOf(roomData);
+        if (index != -1) {
+            roomDataList.set(index, roomData);
+            roomDataListLiveData.setValue(roomDataList);
+        }
+    }
+
+
+    public void delete(RoomData roomData) {
+
+        roomDataList.remove(roomData);
+        roomDataListLiveData.setValue(roomDataList);
+    }
+
 }

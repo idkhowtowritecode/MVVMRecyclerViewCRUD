@@ -3,7 +3,9 @@ package com.example.mvvmrecyclerviewcrud.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.LifecycleOwner;
@@ -48,6 +50,24 @@ public class RoomDataAdapter extends RecyclerView.Adapter<RoomDataAdapter.ViewHo
         holder.breakfastTextView.setText("Breakfast: " + (roomData.hasBreakfast() ? "Yes" : "No"));
         holder.lunchTextView.setText("Lunch: " + (roomData.hasLunch() ? "Yes" : "No"));
         // Set other data as needed
+
+        holder.editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(), "Edit Room ID: " + roomData.getRoomId(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Handle button click here for the specific card
+                // You can access the RoomData associated with this card using 'roomData'
+                // For example, you can display a toast message with some data from the RoomData
+                Toast.makeText(view.getContext(), "Delete Room ID: " + roomData.getRoomId(), Toast.LENGTH_SHORT).show();
+                roomViewModel.delete(roomData);
+
+            }
+        });
     }
 
     @Override
@@ -64,6 +84,7 @@ public class RoomDataAdapter extends RecyclerView.Adapter<RoomDataAdapter.ViewHo
         TextView breakfastTextView;
         TextView lunchTextView;
 
+        Button editButton,deleteButton;
         // Add references to other views in the card layout as needed
 
         public ViewHolder(@NonNull View itemView) {
@@ -75,6 +96,8 @@ public class RoomDataAdapter extends RecyclerView.Adapter<RoomDataAdapter.ViewHo
             wifiTextView = itemView.findViewById(R.id.textHasWifi);
             breakfastTextView = itemView.findViewById(R.id.textHasBreakfast);
             lunchTextView = itemView.findViewById(R.id.textHasLunch);
+            editButton = itemView.findViewById(R.id.buttonEdit);
+            deleteButton = itemView.findViewById(R.id.buttonDelete);
         }
     }
 

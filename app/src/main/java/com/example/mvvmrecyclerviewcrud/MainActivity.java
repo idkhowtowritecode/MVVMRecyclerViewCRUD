@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         searchEditText = findViewById(R.id.editTextSearch);
 
-        Button buttonToast = findViewById(R.id.toastButton);
-        buttonToast.setOnClickListener(new View.OnClickListener() {
+        Button buttonInsert = findViewById(R.id.insertButton);
+        buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // show the dialog
