@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         roomViewModel.addRoomData(roomData1);
         roomViewModel.addRoomData(roomData2);
         roomViewModel.addRoomData(roomData3);
-        RoomDataAdapter adapter = new RoomDataAdapter(roomViewModel, this);
+        RoomDataAdapter adapter = new RoomDataAdapter(roomViewModel, this,this);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
